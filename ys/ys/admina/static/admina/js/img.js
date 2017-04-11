@@ -3,6 +3,7 @@
  */
 
 $(function () {
+    $("input[type='file']").val("");
     $.post("colum_info", function (data) {
         var jsonData = $.parseJSON(data);
         var dataStr = "<option value='0'>请选择</option>";
@@ -63,6 +64,7 @@ function getFileUrl(fileId) {
 $("body").on("change", "input[type='file']", function () {
     if(judgePicture() == 0){
         alert("图片格式为.gif,jpeg,jpg,png中的一种");
+        $("input[type='file']").val("");
     }else{
         var url = getFileUrl("pictureFile");
         $("#image").attr("src", url);
