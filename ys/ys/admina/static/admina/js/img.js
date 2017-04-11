@@ -18,12 +18,13 @@ $(function () {
 //提交被点击的时候出发事件
 $("body").on("click", "input[name='submit']", function () {
     $("#pictureForm").attr("action", "save_picture");
-    $.ajaxSetup({
-        
-    });
+
     $("#pictureForm").ajaxSubmit({
+        //是否重置表单
         resetForm: false,
+        //传递值的类型
         dataType: 'json',
+        //成功之后做的事情
         success:function (data) {
             if(data == 0){
                 alert("失败");
